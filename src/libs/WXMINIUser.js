@@ -29,22 +29,18 @@ class WXMINIUser {
     }
 
     // 获取 openId
-    async getOpenId(code) {
+    async codeToSession(code) {
         const result = await rp({
             url: `https://api.weixin.qq.com/sns/jscode2session?appId=${this.appId}&secret=${this.secret}&js_code=${code}&grant_type=authorization_code`,
             method: 'GET'
         });
 
-        const openId = JSON.parse(result.body).openId;
-
-        if (!openId) {
-            throw new Error({
-                msg: 'failed to get openId',
-                detail: result
-            });
+        try {
+            return JSON.parse(result.body);
         }
-
-        return openId;
+        catch (e) {
+            throw e;
+        }
     }
 }
 

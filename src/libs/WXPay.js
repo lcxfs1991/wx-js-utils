@@ -218,7 +218,8 @@ var WXPay = function (config) {
     if (!(this instanceof WXPay)) {
         throw new TypeError('Please use \'new WXPay\'');
     }
-    let options = ['appId', 'mchId', 'key', 'certFileContent', 'caFileContent'];
+    // let options = ['appId', 'mchId', 'key', 'certFileContent', 'caFileContent'];
+    let options = ['appId', 'mchId', 'key'];
     for (let i = 0; i < options.length; ++i) {
         if (!config[options[i]]) {
             throw new Error('Please check ' + options[i] + ' in config');
