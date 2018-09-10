@@ -28,7 +28,7 @@ class WXMINIUser {
         return rbody.access_token;
     }
 
-    // 获取 openId
+    // 获取 openid  和 session_key
     async codeToSession(code) {
         const result = await rp({
             url: `https://api.weixin.qq.com/sns/jscode2session?appId=${this.appId}&secret=${this.secret}&js_code=${code}&grant_type=authorization_code`,

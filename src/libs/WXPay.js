@@ -67,7 +67,7 @@ const WXPayUtil = {
                     let data = result['xml'];
                     let newData = {};
                     Object.keys(data).forEach(function(key, idx) {
-                        if (data[key].length > 0) {newData[key] = data[key][0];}
+                        if (data[key].length > 0) { newData[key] = data[key][0] }
                     });
                     resolve(newData);
                 }
@@ -98,11 +98,11 @@ const WXPayUtil = {
    *
    * @param {object} data
    * @param {string} key API key
-   * @param {string} signType
+   * @param {string} signTypeParam
    * @returns {string}
    */
-    generateSignature: function (data, key, signType) {
-        signType = signType || WXPayConstants.SIGN_TYPE_MD5;
+    generateSignature: function (data, key, signTypeParam) {
+        let signType = signTypeParam || WXPayConstants.SIGN_TYPE_MD5;
         if (signType !== WXPayConstants.SIGN_TYPE_MD5 && signType !== WXPayConstants.SIGN_TYPE_HMACSHA256) {
             throw new Error('Invalid signType: ' + signType);
         }
@@ -117,7 +117,7 @@ const WXPayUtil = {
                 }
             }
         }
-        if (combineStr.length == 0) {
+        if (combineStr.length === 0) {
             throw new Error('There is no data to generate signature');
         }
         else {
@@ -139,11 +139,11 @@ const WXPayUtil = {
    *
    * @param {object} data
    * @param {string} key API key
-   * @param {string} signType
+   * @param {string} signTypeParam
    * @returns {boolean}
    */
-    isSignatureValid: function (data, key, signType) {
-        signType = signType || WXPayConstants.SIGN_TYPE_MD5;
+    isSignatureValid: function (data, key, signTypeParam) {
+        let signType = signTypeParam || WXPayConstants.SIGN_TYPE_MD5;
         if (data === null || typeof data !== 'object') {
             return false;
         }
@@ -214,7 +214,7 @@ const WXPayUtil = {
  * @param {object} config
  * @constructor
  */
-var WXPay = function (config) {
+let WXPay = function (config) {
     if (!(this instanceof WXPay)) {
         throw new TypeError('Please use \'new WXPay\'');
     }
@@ -300,7 +300,7 @@ WXPay.prototype.isPayResultNotifySignatureValid = function(notifyData) {
     }
     else {
         signTypeInData = (String(signTypeInData)).trim();
-        if (signTypeInData.length == 0) {
+        if (signTypeInData.length === 0) {
             signType = WXPayConstants.SIGN_TYPE_MD5;
         }
         else if (signTypeInData === WXPayConstants.SIGN_TYPE_MD5) {
@@ -355,7 +355,7 @@ WXPay.prototype.requestWithoutCert = function(url, reqData, timeout) {
             request.post(options, function(error, response, body) {
                 if (error) {
                     reject(error);
-                }else {
+                } else {
                     // console.log('resp: ', body);
                     resolve(body);
                 }
@@ -391,7 +391,7 @@ WXPay.prototype.requestWithCert = function(url, reqData, timeout) {
             request.post(options, function(error, response, body) {
                 if (error) {
                     reject(error);
-                }else {
+                } else {
                     resolve(body);
                 }
             });
@@ -600,8 +600,8 @@ WXPay.prototype.downloadBill = function (reqData, timeout) {
         url = WXPayConstants.SANDBOX_DOWNLOADBILL_URL;
     }
     return new Promise(function (resolve, reject) {
-        self.requestWithoutCert(url, self.fillRequestData(reqData), timeout).then(function (respStr) {
-            respStr = respStr.trim();
+        self.requestWithoutCert(url, self.fillRequestData(reqData), timeout).then(function (respStrParam) {
+            let respStr = respStrParam.trim();
             if (respStr.startsWith('<')) {  // XML格式，下载出错
                 self.processResponseXml(respStr).then(function (respObj) {
                     resolve(respObj);
@@ -611,7 +611,7 @@ WXPay.prototype.downloadBill = function (reqData, timeout) {
             }
             else {   // 下载到数据了
                 resolve({
- return_code: 'SUCCESS',
+                    return_code: 'SUCCESS',
                     return_msg: '',
                     data: respStr
                 });

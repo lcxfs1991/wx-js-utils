@@ -5,6 +5,7 @@ const {
 } = require('./libs/WXPay');
 const WXMINIMessage = require('./libs/WXMINIMessage');
 const WXMINIUser = require('./libs/WXMINIUser');
+const WXMINIQR = require('./libs/WXMINIQR');
 
 
 module.exports = {
@@ -12,5 +13,6 @@ module.exports = {
     WXPayUtil,
     WXPayConstants,
     WXMINIMessage,
-    WXMINIUser
+    WXMINIUser,
+    WXMINIQR
 };

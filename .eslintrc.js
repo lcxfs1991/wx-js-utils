@@ -13,6 +13,7 @@ module.exports = {
         "before": true,
         "after": true,
         "beforeEach": true,
-        "afterEach": true
+        "afterEach": true,
+        "expect": true
     }
 };

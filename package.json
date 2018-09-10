@@ -4,7 +4,7 @@
   "description": "wechat nodejs utils",
   "main": "./src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "lcxfs1991",
   "repository": {
@@ -25,6 +25,17 @@
   "devDependencies": {
     "babel-eslint": "^8.2.6",
     "eslint": "^5.4.0",
-    "eslint-config-alloy": "^1.4.2"
+    "eslint-config-alloy": "^1.4.2",
+    "jest": "^23.5.0"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "jest": {
+    "testMatch": [
+      "**/test/!(config)/*.js",
+      "**/test/*.js"
+    ],
+    "testEnvironment": "node"
   }
 }
