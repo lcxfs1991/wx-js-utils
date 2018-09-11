@@ -28,6 +28,7 @@
 const fs = require('fs');
 const {
     WXPay,
+    WXPayUtil,
     WXPayConstants
  } = require('wx-js-utils');
  
@@ -58,10 +59,24 @@ var reqObj = {
   notify_url: 'http://www.example.com/wxpay/notify',
   trade_type: 'NATIVE'
 };
- 
+
+// 统一下单
 wxpay.unifiedOrder(reqObj).then(function(respObj) {
     console.log(respObj);
 }).catch(function(err) {
     console.log(err);
 });
+
+// 签名，不同端的签名可能有所不同，以下举小程序作为例子，
+// 使用 WXPayUtil.generateSignature 签名，
+// 详细文档： https://pay.weixin.qq.com/wiki/doc/api/wxa/wxa_api.php?chapter=7_7&index=3
+// 小程序签名
+
+const sign = WXPayUtil.generateSignature({
+    appId: appId,
+    nonceStr: nonce_str,
+    package: `prepay_id=${prepay_id}`
+    signType: 'MD5',
+    timeStamp: time_stamp // 时间戳
+}, KEY);
 ```
