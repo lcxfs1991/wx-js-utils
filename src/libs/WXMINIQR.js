@@ -24,6 +24,7 @@ class WXMINIQR {
 
         const msg = await rp({
             url: url,
+            encoding: null,
             method: 'POST',
             body: JSON.stringify(postData)
         });
@@ -53,6 +54,7 @@ class WXMINIQR {
 
         const msg = await rp({
             url: url,
+            encoding: null,
             method: 'POST',
             body: JSON.stringify(postData)
         });
@@ -74,6 +76,7 @@ class WXMINIQR {
 
         const msg = await rp({
             url: url,
+            encoding: null,
             method: 'POST',
             body: JSON.stringify(postData)
         });
