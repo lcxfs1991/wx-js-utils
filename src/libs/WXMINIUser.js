@@ -15,8 +15,8 @@ class WXMINIUser {
     async getCacheAccessToken(options = {}) {
         let {
             env = null,
-            secretId = process.env.TENCENTCLOUD_SECRETID,
-            secretKey = process.env.TENCENTCLOUD_SECRETKEY,
+            secretId = null,
+            secretKey = null,
             collection = 'access_token',
             gapTime = 300000 // 5 分钟
         } = options;
