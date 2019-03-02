@@ -26,7 +26,7 @@ let accessToken1 = await wXMINIUser.getAccessToken();
 // 需要先创建名为 access_token 的一个数据库集合，如果想改名字，可以修改 collection 参数 
 
 let accessToken2 = await wXMINIUser.getCacheAccessToken({
-    env: 'tcb-production-xxxx',
+    env: 'tcb-production-xxxx', // 在云函数环境中不填写，表示用默认环境
     secretId: 'xxx', // 小程序绑定的腾讯云账号 secretId，在云函数中可以不用填写
     secretKey: 'xxx', // // 小程序绑定的腾讯云账号 secretKey，在云函数中可以不用填写
     collection = 'access_token', // 集合名默认为 access_token

@@ -12,11 +12,7 @@ class WXMINIUser {
     }
 
     // 获取 access_token 并缓存
-    async getCacheAccessToken(options = null) {
-        if (!options) {
-            return this.getAccessToken();
-        }
-
+    async getCacheAccessToken(options = {}) {
         let {
             env = null,
             secretId = process.env.TENCENTCLOUD_SECRETID,
