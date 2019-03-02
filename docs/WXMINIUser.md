@@ -23,7 +23,8 @@ let wXMINIUser = new WXMINIUser({
 let accessToken1 = await wXMINIUser.getAccessToken();
 
 // 结合小程序·云开发获取并缓存 access_token
-// 需要先创建名为 access_token 的一个数据库集合，如果想改名字，可以修改 collection 参数 
+// 需要先创建名为 access_token 的一个数据库集合，如果想改名字，可以修改 collection 参数
+// 在云函数中可以不需要填写参数，全部采用默认值
 
 let accessToken2 = await wXMINIUser.getCacheAccessToken({
     env: 'tcb-production-xxxx', // 在云函数环境中不填写，表示用默认环境
