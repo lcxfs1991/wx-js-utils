@@ -25,7 +25,7 @@ describe('miniprogram user', () => {
             is_hyaline: true
         });
 
-        expect(typeof qrResult).toBe('string');
+        expect(typeof qrResult.toString('base64')).toBe('string');
     });
 
     it('getMiniQR', async () => {
@@ -49,7 +49,7 @@ describe('miniprogram user', () => {
             is_hyaline: true
         });
 
-        expect(typeof qrResult).toBe('string');
+        expect(typeof qrResult.toString('base64')).toBe('string');
     });
 
     it('getQR', async () => {
@@ -71,6 +71,6 @@ describe('miniprogram user', () => {
             path: 'pages/index/index'
         });
 
-        expect(typeof qrResult).toBe('string');
+        expect(typeof qrResult.toString('base64')).toBe('string');
     });
 });

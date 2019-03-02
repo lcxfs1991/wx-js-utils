@@ -20,7 +20,18 @@ let wXMINIUser = new WXMINIUser({
     secret
 });
 
-let accessToken = await wXMINIUser.getAccessToken();
+let accessToken1 = await wXMINIUser.getAccessToken();
+
+// 结合小程序·云开发获取并缓存 access_token
+// 需要先创建名为 access_token 的一个数据库集合，如果想改名字，可以修改 collection 参数 
+
+let accessToken2 = await wXMINIUser.getCacheAccessToken({
+    env: 'tcb-production-xxxx',
+    secretId: 'xxx', // 小程序绑定的腾讯云账号 secretId，在云函数中可以不用填写
+    secretKey: 'xxx', // // 小程序绑定的腾讯云账号 secretKey，在云函数中可以不用填写
+    collection = 'access_token', // 集合名默认为 access_token
+    gapTime = 300000 // 提前多久失效，默认 5 分钟
+});
 
 // 用 code 换取 openid 和 session_key
 let code = ''; // 从小程序端的 wx.login 接口传过来的 code 值

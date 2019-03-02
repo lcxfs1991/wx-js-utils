@@ -1,6 +1,6 @@
 {
   "name": "wx-js-utils",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "wechat nodejs utils",
   "main": "./src/index.js",
   "scripts": {
@@ -19,6 +19,7 @@
   "dependencies": {
     "md5": "^2.2.1",
     "request": "^2.88.0",
+    "tcb-admin-node": "^1.4.3",
     "uuid": "^3.3.2",
     "xml2js": "^0.4.19"
   },
