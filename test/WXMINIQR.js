@@ -2,15 +2,22 @@ const {
     WXMINIUser,
     WXMINIQR
 } = require('../src');
-const config = require('./config');
+
+let appId = null;
+let secret = null;
+
+if (process.env.TRAVIS) {
+    appId = process.env.appId;
+    secret = process.env.secret;
+}
+else {
+    const config = require('./config');
+    appId = config.appId;
+    secret = config.secret;
+}
 
 describe('miniprogram user', () => {
     it('getMiniQRLimit', async () => {
-        let {
-            appId,
-            secret
-        } = config;
-
         let wXMINIUser = new WXMINIUser({
             appId,
             secret
@@ -29,11 +36,6 @@ describe('miniprogram user', () => {
     });
 
     it('getMiniQR', async () => {
-        let {
-            appId,
-            secret
-        } = config;
-
         let wXMINIUser = new WXMINIUser({
             appId,
             secret
@@ -53,11 +55,6 @@ describe('miniprogram user', () => {
     });
 
     it('getQR', async () => {
-        let {
-            appId,
-            secret
-        } = config;
-
         let wXMINIUser = new WXMINIUser({
             appId,
             secret
