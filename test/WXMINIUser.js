@@ -27,7 +27,7 @@ describe('miniprogram user', () => {
         let accessToken = await wXMINIUser.getAccessToken();
 
         expect(typeof accessToken).toBe('string');
-    });
+    }, 100000);
 
     it('getCacheAccessToken', async () => {
         let wXMINIUser = new WXMINIUser({
@@ -40,5 +40,5 @@ describe('miniprogram user', () => {
         });
 
         expect(typeof accessToken).toBe('string');
-    });
+    }, 10000);
 });
