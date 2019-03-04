@@ -1,6 +1,6 @@
 {
   "name": "wx-js-utils",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "wechat nodejs utils",
   "main": "./src/index.js",
   "scripts": {
