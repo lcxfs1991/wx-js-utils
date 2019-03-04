@@ -4,32 +4,24 @@ const {
 
 class WXMINIMessage {
 
-    constructor({ openId, formId, templateId }) {
-        this.openId = openId;
-        this.formId = formId;
-        this.templateId = templateId;
-    }
-
-    setConfig({ openId, formId, templateId }) {
-        this.openId = openId || this.openId;
-        this.formId = formId || this.formId;
-        this.templateId = templateId || this.templateId;
-        return this;
-    }
-
     async sendMessage({
+        touser,
+        template_id,
+        form_id,
         access_token,
         data,
-        page
+        page,
+        emphasis_keyword
     }) {
         let url = `https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=${access_token}`;
 
         let postData = {
-            touser: this.openId,
-            template_id: this.templateId,
-            form_id: this.formId,
+            touser,
+            template_id,
+            form_id,
             data,
-            page
+            page,
+            emphasis_keyword
         };
 
         const msg = await rp({

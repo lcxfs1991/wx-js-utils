@@ -5,6 +5,8 @@
 ## 支持能力
 * [小程序用户](/docs/WXMINIUser.md)
 * [小程序模板消息](/docs/WXMINIMessage.md)
+* [小程序统一消息](/docs/WXUniformMessage.md)
+* [小程序动态消息](/docs/WXMINIActMessage.md)
 * [小程序码](/docs/WXMINIQR.md)
 * [微信支付](/docs/WXPay.md)
 

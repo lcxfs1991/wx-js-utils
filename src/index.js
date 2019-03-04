@@ -7,6 +7,7 @@ const WXUniformMessage = require('./libs/WXUniformMessage');
 const WXMINIMessage = require('./libs/WXMINIMessage');
 const WXMINIUser = require('./libs/WXMINIUser');
 const WXMINIQR = require('./libs/WXMINIQR');
+const WXMINIActMessage = require('./libs/WXMINIActMessage');
 
 
 module.exports = {
@@ -16,5 +17,6 @@ module.exports = {
     WXMINIMessage,
     WXUniformMessage,
     WXMINIUser,
-    WXMINIQR
+    WXMINIQR,
+    WXMINIActMessage
 };
